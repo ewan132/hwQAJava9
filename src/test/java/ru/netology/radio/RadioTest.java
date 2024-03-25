@@ -89,9 +89,9 @@ public class RadioTest {
     public void shouldAddingOverMaxSound() {
         Radio radio = new Radio();
 
-        radio.setAddingSoundVolume(100);
+        radio.setAddingSoundVolume(80);
 
-        int expected = 100;
+        int expected = 81;
         int actual = radio.volumeSound;
 
         Assertions.assertEquals(expected, actual);
