@@ -3,11 +3,11 @@ public class Radio {
 
     public int stationNumber;
 
-   public int getStationNumber(){return stationNumber;}
+ //  public int getStationNumber(){return stationNumber;}
     public void setNextStation(int next){
         if (next == 9){
             return;
-        }else if (next < 9){
+        }else{
             next ++;
         }
         stationNumber = next;
@@ -17,7 +17,7 @@ public class Radio {
         if (prev == 0){
             stationNumber = 9;
             return;
-        } else if (prev > 0){
+        } else {
             prev --;
         }
         stationNumber = prev;
@@ -25,12 +25,12 @@ public class Radio {
 
 
     public int volumeSound;
-    public int getVolumeSound(){return volumeSound;}
+  //  public int getVolumeSound(){return volumeSound;}
 
     public void setAddingSoundVolume(int adding){
-        if (adding >= 0 && adding !=100){
+        if (adding < 100){
             adding ++;
-        } if (adding == 100){
+        } else {
             volumeSound = 100;
             return;
         }
@@ -38,7 +38,7 @@ public class Radio {
     }
 
     public void setReductionVolume(int reduct){
-        if (reduct <=100 && reduct !=0){
+        if (reduct > 0){
             reduct --;
         } if (reduct == 0){
             volumeSound = 0;

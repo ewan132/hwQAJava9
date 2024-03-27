@@ -76,7 +76,7 @@ public class RadioTest {
     public void shouldAddingSound() {
         Radio radio = new Radio();
 
-        radio.setAddingSoundVolume(99);
+        radio.setAddingSoundVolume(100);
 
         int expected = 100;
         int actual = radio.volumeSound;
@@ -97,6 +97,22 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
+
+
+    @Test
+    public void shouldAddingZeroOverMaxSound() {
+        Radio radio = new Radio();
+
+        radio.setAddingSoundVolume(0);
+
+        int expected = 1;
+        int actual = radio.volumeSound;
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
 
     @Test
     public void shouldReducingTheSoundVolume() {
