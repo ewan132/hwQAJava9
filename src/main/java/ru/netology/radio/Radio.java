@@ -1,50 +1,76 @@
 package ru.netology.radio;
+
 public class Radio {
 
-    public int stationNumber;
+    private int stationNumber;
+    private int volumeSound;
 
- //  public int getStationNumber(){return stationNumber;}
-    public void setNextStation(int next){
-        if (next == 9){
-            return;
-        }else{
-            next ++;
-        }
-        stationNumber = next;
+    public int getStationNumber() {
+        return stationNumber;
     }
 
-    public void setPrevStation(int prev){
-        if (prev == 0){
+    public int getVolumeSound() {
+        return volumeSound;
+    }
+
+    public void setCurrentStation(int stationNumber) {
+        if (stationNumber < 0) {
+            return;
+        }
+        if (stationNumber > 9) {
+            return;
+        }
+        this.stationNumber = stationNumber;
+    }
+
+    public void setCurrentVolume(int volumeSound) {
+        if (volumeSound < 0) {
+            return;
+        }
+        if (volumeSound > 100) {
+            return;
+        }
+        this.volumeSound = volumeSound;
+    }
+
+    public void setNextStation() {
+        if (stationNumber == 9) {
+            stationNumber = 0;
+            return;
+        } else {
+            stationNumber++;
+            return;
+        }
+    }
+
+    public void setPrevStation() {
+        if (stationNumber == 0) {
             stationNumber = 9;
             return;
         } else {
-            prev --;
+            stationNumber--;
         }
-        stationNumber = prev;
     }
 
 
-    public int volumeSound;
-  //  public int getVolumeSound(){return volumeSound;}
-
-    public void setAddingSoundVolume(int adding){
-        if (adding < 100){
-            adding ++;
+    public void setAddingSoundVolume() {
+        if (volumeSound < 100) {
+            volumeSound++;
         } else {
             volumeSound = 100;
             return;
         }
-        volumeSound = adding;
     }
 
-    public void setReductionVolume(int reduct){
-        if (reduct > 0){
-            reduct --;
-        } if (reduct == 0){
+
+    public void setReductionVolume() {
+        if (volumeSound > 0) {
+            volumeSound--;
+        }
+        if (volumeSound == 0) {
             volumeSound = 0;
             return;
         }
-        volumeSound = reduct;
-    }
 
+    }
 }
