@@ -296,4 +296,16 @@ public class RadioTest {
 
     }
 
+    @Test
+    public void shouldCountStation(){
+        Radio radio = new Radio(110);
+         radio.setCurrentStation(9);
+
+            int expected = 9;
+            int actual = radio.getStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
 }
